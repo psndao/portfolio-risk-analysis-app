@@ -1,0 +1,6 @@
+Streamlit
+NumPy
+Pandas
+Requests
+SciPy
+yfinance
