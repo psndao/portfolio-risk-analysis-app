@@ -1,5 +1,11 @@
 ## Portfolio Risk & Performance Analyzer
 
+
+<p align="center">
+  <img src="demo.gif" width="700"/>
+</p>
+
+
 Une application interactive développée avec **Streamlit** permettant d’analyser la performance, le risque et l’optimisation d’un portefeuille d’investissement.
 
 ### Objectifs
