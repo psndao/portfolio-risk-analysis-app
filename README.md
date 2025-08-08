@@ -1,5 +1,4 @@
 ## Portfolio Risk & Performance Analyzer
-#  Portfolio Risk & Performance Analyzer
 
 <p align="center">
   <img src="demo.gif" width="700" alt="Démonstration de l'application été affichée ici"/>
@@ -11,16 +10,13 @@
   </a>
 </p>
 
-## 1. Introduction
+### Introduction
 
-Cette application interactive, réalisée en Streamlit, permet d’analyser, d’optimiser et de visualiser la gestion d’un portefeuille financier en temps réel.
+Une application interactive développée avec **Streamlit** permettant d’analyser la performance, le risque et l’optimisation d’un portefeuille d’investissement.
 
 👉 [Clique ici pour tester l'application en ligne](https://psndao-portfolio-risk-analysis-app-analyse-portefeuille--ddptrb.streamlit.app/)
 
 ...
-
-
-Une application interactive développée avec **Streamlit** permettant d’analyser la performance, le risque et l’optimisation d’un portefeuille d’investissement.
 
 ### Objectifs
 
@@ -67,14 +63,3 @@ Une application interactive développée avec **Streamlit** permettant d’analy
 - Pie charts d’allocation (avant/après optimisation)
 
 ---
-
-### Lancer l'application
-
-### Installation des dépendances
-
-```bash
-python -m venv .venv
-source .venv/bin/activate        # macOS/Linux
-.venv\Scripts\activate           # Windows
-
-pip install -r requirements.txt
