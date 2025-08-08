@@ -1,0 +1,11 @@
+# Environnements virtuels
+.venv/
+env/
+
+# Fichiers Python compilés
+__pycache__/
+*.pyc
+
+# Autres fichiers à ignorer
+.DS_Store
+*.log
