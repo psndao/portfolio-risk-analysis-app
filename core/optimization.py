@@ -1,5 +1,7 @@
 import numpy as np
 import scipy.optimize as sco
+import pandas as pd
+
 
 def optimize_portfolio_strategy(returns_dict, strategy='sharpe', rf=0.02):
     df = pd.DataFrame(returns_dict)
