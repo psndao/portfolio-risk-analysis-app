@@ -5,16 +5,14 @@
 </p>
 
 <p align="center">
-  <a href="https://psndao-portfolio-risk-analysis-app-analyse-portefeuille--ddptrb.streamlit.app/" target="_blank">
+  <a href="https://psndao-portfolio-risk-analysis-a-analyse-du-portefeuille-xqrw6r.streamlit.app/" target="_blank">
     <img src="https://img.shields.io/badge/🚀 Tester l'app Streamlit - Portfolio Analyzer-purple?style=for-the-badge" alt="Lancer l'application Streamlit">
   </a>
 </p>
 
 ### Introduction
 
-Une application interactive développée avec **Streamlit** permettant d’analyser la performance, le risque et l’optimisation d’un portefeuille d’investissement.
-
-👉 [Clique ici pour tester l'application en ligne](https://psndao-portfolio-risk-analysis-app-analyse-portefeuille--ddptrb.streamlit.app/)
+Une application développée avec **Streamlit** permettant d’analyser la performance, le risque et l’optimisation d’un portefeuille d’investissement.
 
 ...
 
