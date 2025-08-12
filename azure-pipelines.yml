@@ -1,0 +1,71 @@
+# azure-pipelines.yml — CI pour portfolio-risk-analysis-app
+
+trigger:
+  branches:
+    include: [ main ]
+
+pr:
+  branches:
+    include: [ main ]
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  PYTHON_VERSION: '3.11'
+  PIP_CACHE: '$(Pipeline.Workspace)/.pip'
+  ARTIFACT_NAME: 'portfolio-risk-analysis-build'
+
+steps:
+- checkout: self
+  fetchDepth: 0
+
+# Cache pip (accélère les builds)
+- task: Cache@2
+  inputs:
+    key: 'pip | "$(Agent.OS)" | requirements.txt'
+    restoreKeys: |
+      pip | "$(Agent.OS)"
+    path: $(PIP_CACHE)
+
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '$(PYTHON_VERSION)'
+
+- script: |
+    python -m pip install --upgrade pip
+    if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+  displayName: 'Installer dépendances'
+
+# Smoke test: vérifier que les modules s’importent (sans lancer Streamlit)
+- script: |
+    python - << 'PY'
+    import importlib
+    modules = [
+      "Analyse_du_portefeuille",
+      "core.data_fetch","core.optimization","core.performance","core.risk","core.visuals"
+    ]
+    for m in modules:
+        importlib.import_module(m)
+    print("✅ Imports OK")
+    PY
+  displayName: 'Vérifications (imports)'
+
+# (Optionnel) Lint – décommente si tu veux activer flake8
+# - script: |
+#     pip install flake8
+#     flake8 .
+#   displayName: 'Lint (flake8)'
+
+# Publier l’artefact (code + requirements), pour une release ou un déploiement ultérieur
+- script: |
+    mkdir -p package
+    cp -r Analyse_du_portefeuille.py core pages requirements.txt README.md LICENSE package/
+  displayName: 'Préparer le paquet'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: 'package'
+    ArtifactName: '$(ARTIFACT_NAME)'
+    publishLocation: 'Container'
+  displayName: 'Publier artefact'
